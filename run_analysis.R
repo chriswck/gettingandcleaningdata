@@ -9,7 +9,7 @@ for (i in seq_along(vars_names)) {
 temp <- gsub("-mean\\(\\)", ".m", vars_names)
 temp <- gsub("-std\\(\\)", ".s", temp)
 vars_names <- gsub("-", ".", temp)
-VARIABLE <- vars_names
+VARIABLE <- c("subject", "activity", vars_names)
 codebook <- cbind(VARIABLE, DESCRIPTION)
 write.table(codebook, file = "codebook.txt", sep=" ", row.names = FALSE)
 

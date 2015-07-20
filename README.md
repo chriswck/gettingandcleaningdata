@@ -1,9 +1,9 @@
 ---
-title: "README"
-output: html_document
+Title: "README"
+Output: html_document
 ---
 ##README.md for run_analysis.R
-###A line-by-line dissection
+####A line-by-line dissection
 
 
 ```{r, echo = FALSE}
@@ -12,8 +12,8 @@ vars_index <- grep("(mean\\(\\)|std\\(\\))", feats)
 vars_names <- grep("(mean\\(\\)|std\\(\\))", feats, value = TRUE)
 ```
 This reads "features.txt" and returns:
-*An index of columns that corresponds to the mean and std variables
-*The names of those columns
+* An index of columns that corresponds to the mean and std variables
+* The names of those columns
 
 ```{r, echo = FALSE}
 DESCRIPTION <- c("Subjects from 1 to 30", "Six activities: walking, walking up, walking down, sitting, standing, laying", vars_names)
@@ -28,11 +28,11 @@ codebook <- cbind(VARIABLE, DESCRIPTION)
 write.table(codebook, file = "codebook.txt", sep=" ", row.names = FALSE)
 ```
 This names the variables into a more compact form, separated with ".", such that:
-*Simplified variable label
-*Mean or standard deviation variable
-  +".m" = mean
-  +".s" = standard deviation
-*The axis X, Y or Z
+* Simplified variable label
+* Mean or standard deviation variable
+  + ".m" = mean
+  + ".s" = standard deviation
+* The axis X, Y or Z
 After that, a codebook is written
 
 ```{r, echo = FALSE}
@@ -60,9 +60,9 @@ full_test <- cbind(test_sub, test_y, test_x)
 ```
 This reads the actual datapoints from "X_test.txt". As the dataset is massive, only the first 5 rows were read in so that classes of each column can be determined. And then the entire dataset is read by applying those determined column classes to speed up the reading.
 And then combining all three dataframes:
-*Subject list
-*Acitivty list
-*Datapoint values
+* Subject list
+* Acitivty list
+* Datapoint values
 
 ```{r, echo = FALSE}
 train_sub <- read.table("UCI Har Dataset/train/subject_train.txt")
